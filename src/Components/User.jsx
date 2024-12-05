@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+const backend = import.meta.env.VITE_APP_BACKEND_URL;
 
 const User = () => {
   const [userName, setUserName] = useState("");
@@ -9,9 +10,9 @@ const User = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/users"); 
+        const response = await axios.get(`${backend}/users`); 
         console.log(response.data);
-        setUserList(response.data); // Set the fetched user data
+        setUserList(response.data); 
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -23,14 +24,14 @@ const User = () => {
   const addUser = async  () => {
     if (userName.trim()) {
       try {
-        // Send POST request to add a new user
-        const response = await axios.post("http://localhost:3000/users", {
+        
+        const response = await axios.post(`${backend}/users`, {
           name: userName,
         });
 
-        // Add the new user to the list (optimistic update)
+        
         setUserList([...userList, response.data]);
-        setUserName(""); // Clear the input field
+        setUserName(""); 
       } catch (error) {
         console.error("Error adding user:", error);
       }
