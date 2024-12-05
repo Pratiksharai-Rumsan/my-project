@@ -8,7 +8,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${backend}/projects`);
+        const response = await axios.get(`${backend}/api/projects`);
 
         setProjectList(response.data); // Set the fetched user data
       } catch (error) {
@@ -22,7 +22,7 @@ const Projects = () => {
   const addProject = async () => {
     if (projectName.trim()) {
       try {
-        const response = await axios.post(`${backend}/projects`, {
+        const response = await axios.post(`${backend}/api/projects`, {
           name: projectName,
         });
 
