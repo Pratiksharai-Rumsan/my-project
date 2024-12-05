@@ -1,10 +1,10 @@
-import Footer from "./Components/Footer";
-import Nav from "./Components/Nav";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Projects from "./Components/Projects";
-import Service from "./Components/User";
-import About from "./Components/About";
-import User from "./Components/User";
+import Projects from "./components/Projects";
+import Service from "./components/User";
+import About from "./components/About";
+import User from "./components/User";
 
 function App() {
   return (
