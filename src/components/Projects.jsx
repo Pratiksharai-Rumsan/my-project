@@ -4,32 +4,13 @@ import React, { useEffect, useState } from "react";
 const Projects = () => {
   const [projectName, setProjectName] = useState("");
   const [projectList, setProjectList] = useState([]);
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/projects");
-        console.log(response.data);
-        setProjectList(response.data); // Set the fetched user data
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
+ 
 
   const addProject = async () => {
-    if (projectName.trim()) {
-      try {
-        const response = await axios.post("http://localhost:3000/projects", {
-          name: projectName,
-        });
-
-        setProjectList([...projectList, response.data]);
-        setProjectName("");
-      } catch (error) {
-        console.error("Error adding project:", error);
-      }
+    if (projectName) {
+    
+   setProjectList([...projectList, { name: projectName }]);
+   setProjectName("");
     }
   };
 
@@ -71,7 +52,7 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {projectList.map((project) => (
               <div
-                key={project.id}
+                key={project.index}
                 className="bg-gray-700 p-4 rounded-lg shadow-md"
               >
                 <h3 className="text-lg font-bold">{project.name}</h3>
