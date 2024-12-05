@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 
 const Nav = () => {
   return (
@@ -7,37 +8,37 @@ const Nav = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-lg font-bold">
+            <Link to="/" className="text-lg font-bold"> 
               MyBrand
-            </a>
+            </Link>
           </div>
 
           {/* Menu Items */}
           <div className="hidden md:flex space-x-4">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
             >
               Home
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
             >
               About
-            </a>
-            <a
-              href="/users"
+            </Link>
+            <Link
+              to="/users"
               className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
             >
               Users
-            </a>
-            <a
-              href="/projects"
+            </Link>
+            <Link
+              to="/projects"
               className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
             >
               Projects
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
