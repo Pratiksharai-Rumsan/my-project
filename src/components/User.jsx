@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-const backend = import.meta.env.VITE_APP_BACKEND_URL;
+const backend = import.meta.env.VITE_APP_BACKEND_SECOND_URL;
 
 const User = () => {
   const [userName, setUserName] = useState("");

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+const backend = import.meta.env.VITE_APP_BACKEND_SECOND_URL;
 
 const Projects = () => {
   const [projectName, setProjectName] = useState("");
@@ -7,8 +8,8 @@ const Projects = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/projects");
-        console.log(response.data);
+        const response = await axios.get(`${backend}/projects`);
+
         setProjectList(response.data); // Set the fetched user data
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -21,7 +22,7 @@ const Projects = () => {
   const addProject = async () => {
     if (projectName.trim()) {
       try {
-        const response = await axios.post("http://localhost:3000/projects", {
+        const response = await axios.post(`${backend}/projects`, {
           name: projectName,
         });
 
